@@ -18,7 +18,3 @@ A responsive and feature-rich **Employee Directory Web App** built using **React
 - ✏️ Edit existing employee details
 - 🗑️ Delete employee record
 - 💅 Clean and responsive UI using Tailwind CSS
-
----
-
-## 📁 Folder Struct
