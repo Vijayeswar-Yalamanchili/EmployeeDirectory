@@ -3,6 +3,7 @@ import EmployeeList from './components/EmployeeList'
 import EmployeeForm from './components/EmployeeForm'
 import FilterSort from './components/FilterSort'
 import SearchBar from './components/SearchBar'
+import Footer from './components/Footer'
 
 function App() {
 
@@ -38,7 +39,8 @@ function App() {
     .filter(emp => !filterDept || emp.department === filterDept)
     .sort((a, b) => {
       if (sortKey === 'name') return a.name.localeCompare(b.name);
-      if (sortKey === 'joiningDate') return new Date(a.joiningDate) - new Date(b.joiningDate)
+      if (sortKey === 'department') return a.department.localeCompare(b.department);
+      if (sortKey === 'role') return a.role.localeCompare(b.role);
       return 0
     }
   )
@@ -54,13 +56,16 @@ function App() {
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-5xl mx-auto">
         <h1 className="text-4xl font-bold mb-6 text-center text-indigo-700">Employee Directory</h1>
-        <div className="flex flex-col gap-4 mb-6">
-          <SearchBar onSearch={handleSearch} />
-          <FilterSort onFilter={handleFilter} onSort={handleSort} />
+        <div className="flex flex-col gap-4 mb-6">          
+          <div className="flex flex-row gap-32 mb-6">
+            <SearchBar onSearch={handleSearch} />
+            <FilterSort onFilter={handleFilter} onSort={handleSort} />            
+          </div>
           <EmployeeForm onSubmit={handleSubmit} selected={selected} />
         </div>
         <EmployeeList employees={filtered} onEdit={setSelected} onDelete={handleDelete}/>
       </div>
+      <Footer/>
     </div>
   </>
 }

@@ -13,7 +13,7 @@ function FilterSort({ onFilter, onSort }) {
       <select onChange={(e) => onSort(e.target.value)} className="p-2 border rounded w-full sm:w-auto">
         <option value="">Sort By</option>
         <option value="name">Name</option>
-        <option value="joiningDate">Joining Date</option>
+        <option value="department">Department</option>
       </select>
     </div>
   </>
